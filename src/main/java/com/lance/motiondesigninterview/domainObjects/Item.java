@@ -3,7 +3,6 @@ package com.lance.motiondesigninterview.domainObjects;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Value;
 
 
 @Getter

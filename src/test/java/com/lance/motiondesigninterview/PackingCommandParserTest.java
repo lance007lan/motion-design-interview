@@ -35,4 +35,11 @@ class PackingCommandParserTest {
                         .getResourceAsStream("/invalid_item_length.txt")));
     }
 
+    @Test
+    public void parseCommand_when_negative_length() {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> packingCommandParser.parseCommand(this.getClass()
+                        .getResourceAsStream("/negative_length.txt")));
+    }
+
 }

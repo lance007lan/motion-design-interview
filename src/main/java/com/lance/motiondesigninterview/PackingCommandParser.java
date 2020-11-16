@@ -26,8 +26,8 @@ public class PackingCommandParser {
         }
         PackingCriteria packingCriteria = PackingCriteria.builder()
                 .sortOrder(SortOrder.valueOf(packingCriteriaLine[0].trim()))
-                .maxPiecesPerPack(Integer.valueOf(packingCriteriaLine[1].trim()))
-                .maxWeightPerPack(Float.valueOf(packingCriteriaLine[2].trim()))
+                .maxPiecesPerPack(validatePostiveValue(Integer.valueOf(packingCriteriaLine[1].trim())))
+                .maxWeightPerPack(validatePostiveValue(Float.valueOf(packingCriteriaLine[2].trim())))
                 .build();
 
         List<Item> items = new ArrayList<>();
@@ -42,14 +42,21 @@ public class PackingCommandParser {
                 throw new IllegalArgumentException("Incorrect number of parameters for item");
             }
             items.add(Item.builder()
-                    .id(Integer.valueOf(itemParameters[0]))
-                    .length(Integer.valueOf(itemParameters[1]))
-                    .quantity(Integer.valueOf(itemParameters[2]))
-                    .weight(Float.valueOf(itemParameters[3]))
+                    .id(validatePostiveValue(Integer.valueOf(itemParameters[0])))
+                    .length(validatePostiveValue(Integer.valueOf(itemParameters[1])))
+                    .quantity(validatePostiveValue(Integer.valueOf(itemParameters[2])))
+                    .weight(validatePostiveValue(Float.valueOf(itemParameters[3])))
                     .build());
 
         }
 
         return PackingCommand.builder().packingCriteria(packingCriteria).items(items).build();
+    }
+
+    private <T extends Number> T validatePostiveValue(T number) {
+        if (number.doubleValue() <= 0) {
+            throw new IllegalArgumentException("All number type parameters should greater than 0");
+        }
+        return number;
     }
 }
