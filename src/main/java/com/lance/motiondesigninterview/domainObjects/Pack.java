@@ -5,6 +5,10 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * A {@link Pack} contains a list of {@link Item}s. It is guaranteed that all {@link Item}s in the same pack should have
+ * unique item ids. It is possible that items from two different {@code Pack}s have same {@link Item#id}.
+ */
 @Getter
 public class Pack {
     private static int nextPackId = 1;

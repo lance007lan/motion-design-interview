@@ -42,4 +42,11 @@ class PackingCommandParserTest {
                         .getResourceAsStream("/negative_length.txt")));
     }
 
+    @Test
+    public void parseCommand_when_duplicated_item_ids() {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> packingCommandParser.parseCommand(this.getClass()
+                        .getResourceAsStream("/duplicated-item-ids.txt")));
+    }
+
 }
