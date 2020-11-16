@@ -11,9 +11,9 @@ import java.util.List;
 @SpringBootApplication
 public class MotionDesignInterviewApplication implements CommandLineRunner {
 	private final PackingCommandParser packingCommandParser;
-	private final Packer packer;
+	private final PackPlanner packer;
 
-	public MotionDesignInterviewApplication(PackingCommandParser packingCommandParser, Packer packer) {
+	public MotionDesignInterviewApplication(PackingCommandParser packingCommandParser, PackPlanner packer) {
 		this.packingCommandParser = packingCommandParser;
 		this.packer = packer;
 	}

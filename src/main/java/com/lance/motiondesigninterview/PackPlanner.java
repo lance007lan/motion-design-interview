@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class Packer {
+public class PackPlanner {
 
     public List<Pack> packItems(PackingCommand packingCommand) {
 

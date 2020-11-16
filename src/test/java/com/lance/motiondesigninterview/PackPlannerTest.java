@@ -9,8 +9,8 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PackerTest {
-    private Packer packer = new Packer();
+class PackPlannerTest {
+    private PackPlanner packer = new PackPlanner();
 
     private PackingCommand createExamplePackingCommand(SortOrder sortOrder) {
         return PackingCommand.builder()
